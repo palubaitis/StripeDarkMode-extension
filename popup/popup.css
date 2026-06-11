@@ -1,0 +1,263 @@
+/* Stripe Dark Mode — popup, styled to match the dark/blurple theme */
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #15151c;
+  --surface-2: #1c1c25;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #ededf2;
+  --text-dim: #8a8a99;
+  --accent: #635bff;
+  --accent-bright: #8b85ff;
+  --accent-soft: rgba(99, 91, 255, 0.16);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Header ------------------------------------------------ */
+.header {
+  margin-bottom: 14px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.brand-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+  box-shadow: 0 0 0 1px var(--border-strong), 0 4px 14px var(--accent-soft);
+  position: relative;
+}
+.brand-dot::after {
+  /* little crescent so the icon reads as "dark mode" */
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--bg);
+  -webkit-mask: radial-gradient(circle at 70% 35%, transparent 52%, #000 53%);
+  mask: radial-gradient(circle at 70% 35%, transparent 52%, #000 53%);
+}
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.2px;
+}
+.brand-text p {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 1px;
+}
+
+/* ---- Card -------------------------------------------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 4px 14px;
+  box-shadow: var(--shadow);
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+.row.column {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.row.column .row-label {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.row-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.row-title {
+  font-size: 14px;
+  font-weight: 550;
+}
+.row-sub {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ---- Toggle switch ----------------------------------------- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 27px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider-track {
+  position: absolute;
+  inset: 0;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.slider-track::before {
+  content: "";
+  position: absolute;
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.18s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.switch input:checked + .slider-track {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.switch input:checked + .slider-track::before {
+  transform: translate(19px, -50%);
+}
+.switch input:focus-visible + .slider-track {
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* ---- Range slider ------------------------------------------ */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  outline: none;
+  border: 1px solid var(--border);
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  cursor: pointer;
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.range::-webkit-slider-thumb:hover {
+  background: #fff;
+}
+.range-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: -4px;
+}
+
+/* ---- Buy me a coffee --------------------------------------- */
+.bmc {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 13px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(99, 91, 255, 0.22), var(--surface));
+  border: 1px solid var(--accent-soft);
+  transition: transform 0.12s ease, border-color 0.18s ease,
+    background 0.18s ease;
+}
+.bmc:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(99, 91, 255, 0.32), var(--surface-2));
+}
+.bmc:active {
+  transform: translateY(0);
+}
+.bmc-emoji {
+  font-size: 22px;
+  flex: 0 0 auto;
+}
+.bmc-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.bmc-text strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.bmc-text small {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 1px;
+}
+.bmc-arrow {
+  color: var(--accent-bright);
+  font-size: 16px;
+  transition: transform 0.18s ease;
+}
+.bmc:hover .bmc-arrow {
+  transform: translateX(3px);
+}
+
+/* ---- Footer ------------------------------------------------ */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.kbd-hint {
+  display: inline-flex;
+  gap: 3px;
+}
+kbd {
+  font-family: inherit;
+  font-size: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  padding: 1px 5px;
+  color: var(--text);
+}

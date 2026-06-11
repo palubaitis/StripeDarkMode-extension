@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Stripe Dark Mode</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <div class="brand-text">
+          <h1>Stripe Dark Mode</h1>
+          <p>Dashboard, all pages</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="card">
+      <div class="row">
+        <div class="row-label">
+          <span class="row-title">Dark mode</span>
+          <span class="row-sub" id="status-text">Enabled</span>
+        </div>
+        <label class="switch" title="Toggle (Alt+Shift+D)">
+          <input type="checkbox" id="toggle" checked />
+          <span class="slider-track"></span>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row column">
+        <div class="row-label">
+          <span class="row-title">Intensity</span>
+          <span class="row-sub" id="intensity-text">Balanced</span>
+        </div>
+        <input
+          type="range"
+          id="intensity"
+          min="0"
+          max="100"
+          value="50"
+          step="1"
+          class="range"
+        />
+        <div class="range-legend">
+          <span>Soft</span>
+          <span>Deep</span>
+        </div>
+      </div>
+    </main>
+
+    <a
+      class="bmc"
+      id="bmc"
+      href="https://buymeacoffee.com/palubaitis"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="bmc-emoji" aria-hidden="true">☕</span>
+      <span class="bmc-text">
+        <strong>Buy me a coffee</strong>
+        <small>Free forever — support keeps it updated</small>
+      </span>
+      <span class="bmc-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <footer class="footer">
+      <span>Not affiliated with Stripe, Inc.</span>
+      <span class="kbd-hint"><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd></span>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

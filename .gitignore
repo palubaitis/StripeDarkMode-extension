@@ -1,0 +1,12 @@
+# Build output
+dist/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Original full-res screenshots (source for store assets)
+store/source/
